@@ -17,3 +17,7 @@ jobs:
           echo "Variable d'environnement du workflow: $VAR_FROM_WORKFLOW"
           echo "Variable d'environnement du job: $VAR_FROM_JOB"
           echo "Variable d'environnement de l'étape: $VAR_FROM_STEP"
+          echo "Github ref: $GITHUB_REF"
+          echo "Github event: $GITHUB_EVENT_NAME"
+          echo "Github actor: $VAR_PROJECT"
+          echo "Github actor: $SECRET_PROJECT"
