@@ -1,0 +1,19 @@
+name: variables tests
+on: push
+
+env:
+  VAR_FROM_WORKFLOW: "Je suis une variable d'environnement définie dans le workflow"
+
+jobs:
+  test-variables:
+    runs-on: ubuntu-latest
+    env:
+      VAR_FROM_JOB: "Je suis une variable d'environnement définie dans le job"
+    steps:
+      - name: Afficher les variables d'environnement
+        env:
+          VAR_FROM_STEP: "Je suis une variable d'environnement définie dans l'étape"
+        run: |
+          echo "Variable d'environnement du workflow: $VAR_FROM_WORKFLOW"
+          echo "Variable d'environnement du job: $VAR_FROM_JOB"
+          echo "Variable d'environnement de l'étape: $VAR_FROM_STEP"
