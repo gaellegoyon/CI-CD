@@ -7,3 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, world"
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Afficher le repertoire de travail
+      run: pwd
+    - run: echo "second step"
