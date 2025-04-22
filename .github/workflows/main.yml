@@ -1,15 +1,45 @@
-name: "Mon premier workflow"
+name: "Workflow d'Opérations sur les Fichiers"
 
 on: push
 
 jobs:
-  say-hello:
+  premier-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, world"
+      - name: Vérifier l'utilisateur actuel
+        run: whoami
+      
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v3
+      
+      - name: Créer un répertoire
+        run: mkdir repertoire_test
+      
+      - name: Créer un fichier dans le répertoire
+        run: echo "Ceci est un fichier test" > repertoire_test/fichier_test.txt
+      
+      - name: Lister les fichiers à la racine
+        run: ls -la
+      
+      - name: Lister les fichiers dans le répertoire créé
+        run: ls -la repertoire_test
+
   second-job:
+    needs: premier-job
     runs-on: ubuntu-latest
     steps:
-    - name: Afficher le repertoire de travail
-      run: pwd
-    - run: echo "second step"
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v3
+      
+      - name: Lister les fichiers pour vérifier la persistance du répertoire et du fichier
+        run: |
+          echo "Fichiers à la racine:"
+          ls -la
+          echo "Vérification du répertoire test:"
+          if [ -d "repertoire_test" ]; then
+            echo "Le répertoire existe"
+            echo "Contenu du répertoire:"
+            ls -la repertoire_test
+          else
+            echo "Le répertoire n'existe pas"
+          fi
