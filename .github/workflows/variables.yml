@@ -20,4 +20,6 @@ jobs:
           echo "Github ref: $GITHUB_REF"
           echo "Github event: $GITHUB_EVENT_NAME"
           echo "Github actor: $VAR_PROJECT"
+          echo "Github actor: ${{vars.VAR_PROJECT}}"
           echo "Github actor: $SECRET_PROJECT"
+            echo "Github actor: ${{ secrets.SECRET_PROJECT }}"
