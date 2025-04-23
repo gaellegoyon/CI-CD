@@ -27,7 +27,7 @@ jobs:
           echo "resultat=Séquence vidéo 22h15-22h45 récupérée" >> $GITHUB_OUTPUT
       - name: Vidéo récupérée
         run: |
-        echo "Vidéo récupérée: Séquence vidéo 22h15-22h45"
+          echo "Vidéo récupérée: Séquence vidéo 22h15-22h45"
 
   detective:
     needs: [policier-scene, policier-video]
