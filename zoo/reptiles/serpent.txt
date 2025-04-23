@@ -18,7 +18,6 @@ Habitat:
 Les serpents se trouvent sur tous les continents sauf l'Antarctique, dans divers habitats comme les forêts, déserts, prairies et milieux aquatiques.
 
 Espèces notables:
-- Pythons
 - Boas
 - Cobras
 - Vipères

@@ -1,0 +1,20 @@
+name: Test Matrix Workflow
+
+on:
+  push:
+
+jobs:
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+        database: [local, cloud]
+        exclude:
+          - node-version: 18
+            database: cloud
+    steps:
+      - name: Afficher la configuration
+        run: |
+          echo "Version de Node.js : ${{ matrix.node-version }}"
+          echo "Type de base de données : ${{ matrix.database }}"
