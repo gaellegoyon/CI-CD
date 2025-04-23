@@ -7,7 +7,7 @@ jobs:
   policier-scene:
     runs-on: ubuntu-latest
     outputs:
-      empreinte: empreinte trouvée sur la caisse
+      empreinte: "empreinte trouvée sur la caisse"
     steps:
       - name: Examiner la caisse enregistreuse
         run: echo "Le policier examine la caisse enregistreuse"
@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Récupérer les indices
         run: |
-          echo "Empreinte : $${{ needs.policier-scene.outputs.empreinte }}"
+          echo "Empreinte : ${{ needs.policier-scene.outputs.empreinte }}"
           echo "Vidéo : ${{ needs.policier-video.outputs.video }}"
       - name: Analyser les indices
         run: |
