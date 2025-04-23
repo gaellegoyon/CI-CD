@@ -1,20 +1,12 @@
-Le lion (Panthera leo)
-
-Description:
-Le lion est un grand félin au pelage fauve à doré, reconnaissable par sa crinière (chez le mâle) et sa silhouette imposante.
+Le lion (Panthera leo) est un grand mammifère carnivore de la famille des félins. Il est connu comme "le roi des animaux" pour sa crinière majestueuse et son rugissement puissant.
 
 Caractéristiques:
-- Famille: Felidae
 - Poids: 150-250 kg (mâle), 120-180 kg (femelle)
 - Longueur: 170-250 cm (sans la queue)
-- Espérance de vie: 10-14 ans à l'état sauvage, jusqu'à 20 ans en captivité
-- Habitat naturel: savanes africaines et une petite région de l'Inde
+- Habitat: savanes africaines, quelques populations en Inde
+- Alimentation: carnivore (antilopes, zèbres, gnous)
+- Durée de vie: 10-15 ans à l'état sauvage
 
-Comportement:
-Le lion est le seul félin vivant en groupe social appelé "pride" (troupe). Une troupe est généralement composée de plusieurs femelles apparentées, leurs petits et un petit nombre de mâles adultes. Les lionnes sont les principales chasseuses.
+Les lions vivent en groupes sociaux appelés "prides" (troupeaux), composés généralement d'un à trois mâles adultes, de femelles apparentées et de leurs petits. Les lionnes sont les principales chasseuses, tandis que les mâles défendent le territoire.
 
-Alimentation:
-Carnivore, le lion se nourrit principalement de grands herbivores comme les gnous, zèbres, buffles et antilopes.
-
-Statut de conservation:
-Vulnérable selon l'UICN (Union Internationale pour la Conservation de la Nature).
+Statut de conservation: Vulnérable (UICN)
