@@ -7,8 +7,11 @@ jobs:
   policier-scene:
     runs-on: ubuntu-latest
     outputs:
-      empreinte: "empreinte trouvée sur la caisse"
+      empreinte: ${{ steps.collect-empreinte.outputs.empreinte }}
     steps:
+      - id: collect-empreinte
+        run: |
+          echo "empreinte=empreinte trouvée sur la caisse" >> $GITHUB_OUTPUT
       - name: Examiner la caisse enregistreuse
         run: echo "Le policier examine la caisse enregistreuse"
       - name: Prélever une empreinte
@@ -23,7 +26,8 @@ jobs:
         run: |
           echo "resultat=Séquence vidéo 22h15-22h45 récupérée" >> $GITHUB_OUTPUT
       - name: Vidéo récupérée
-        run: echo "Vidéo récupérée : Séquence vidéo 22h15-22h45"
+        run: |
+        echo "Vidéo récupérée: Séquence vidéo 22h15-22h45"
 
   detective:
     needs: [policier-scene, policier-video]
@@ -59,4 +63,5 @@ jobs:
         run: echo "🚨 Enquête sans suite"
       - name: Procéder à l'arrestation
         if: ${{ needs.detective.outputs.autorisation_arrestation == 'true' }}
-        run: echo "🚔 Arrestation effectuée au lieu : ${{ needs.detective.outputs.lieu_arrestation }}"
+        run: |
+          echo "🚔 Arrestation effectuée au lieu: ${{ needs.detective.outputs.lieu_arrestation }}"
