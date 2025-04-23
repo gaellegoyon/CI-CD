@@ -7,7 +7,7 @@ jobs:
   policier-scene:
     runs-on: ubuntu-latest
     outputs:
-      empreinte: "empreinte trouvée sur la caisse"
+      empreinte: empreinte trouvée sur la caisse
     steps:
       - name: Examiner la caisse enregistreuse
         run: echo "Le policier examine la caisse enregistreuse"
