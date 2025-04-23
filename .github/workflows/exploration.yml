@@ -1,0 +1,43 @@
+name: Exploration Spatiale Répétitif
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mission-mars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mission Mars
+        run: |
+          echo "=== Mission Mars ==="
+          echo "Équipements : Rover, Combinaison spatiale"
+          echo "Durée du voyage : 7 mois"
+          echo "Activité principale : Analyse des roches"
+          echo "Type de destination : planete"
+          echo "=== Fin de la mission ==="
+
+  mission-lune:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mission Lune
+        run: |
+          echo "=== Mission Lune ==="
+          echo "Équipements : Module lunaire, Combinaison spatiale"
+          echo "Durée du voyage : 3 jours"
+          echo "Activité principale : Collecte d'échantillons"
+          echo "Type de destination : satellite"
+          echo "=== Fin de la mission ==="
+
+  mission-venus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mission Vénus
+        run: |
+          echo "=== Mission Vénus ==="
+          echo "Équipements : Sonde atmosphérique, Instruments scientifiques"
+          echo "Durée du voyage : 5 mois"
+          echo "Activité principale : Analyse atmosphérique"
+          echo "Type de destination : planete"
+          echo "=== Fin de la mission ==="
