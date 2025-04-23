@@ -7,11 +7,8 @@ jobs:
   policier-scene:
     runs-on: ubuntu-latest
     outputs:
-      empreinte: ${{ steps.collect-empreinte.outputs.empreinte }}
+      empreinte: "empreinte trouvée sur la caisse"
     steps:
-      - id: collect-empreinte
-        run: |
-          echo "empreinte=empreinte trouvée sur la caisse" >> $GITHUB_OUTPUT
       - name: Examiner la caisse enregistreuse
         run: echo "Le policier examine la caisse enregistreuse"
       - name: Prélever une empreinte
@@ -39,7 +36,7 @@ jobs:
     steps:
       - name: Récupérer les indices
         run: |
-          echo "Empreinte : ${{ needs.policier-scene.outputs.empreinte }}"
+          echo "Empreinte : $${{ needs.policier-scene.outputs.empreinte }}"
           echo "Vidéo : ${{ needs.policier-video.outputs.video }}"
       - name: Analyser les indices
         run: |
