@@ -1,0 +1,18 @@
+name: Surveillance des oiseaux
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "zoo/oiseaux/**"
+
+jobs:
+  surveillance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher les informations
+        run: |
+          echo "Titre de la PR: ${{ github.event.pull_request.title }}"
+          echo "Type d'événement: ${{ github.event_name }}"
+          echo "Auteur: ${{ github.actor }}"
