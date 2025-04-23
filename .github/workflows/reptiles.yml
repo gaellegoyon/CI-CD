@@ -1,0 +1,37 @@
+name: Gestion des reptiles
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "zoo/reptiles/**"
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - synchronize
+    paths:
+      - "zoo/reptiles/**"
+
+jobs:
+  gestion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gestion des reptiles pour les push
+        if: ${{ github.event_name == 'push' }}
+        run: echo "Un reptile a été ajouté au zoo"
+
+      - name: Gestion des reptiles pour les PR ouvertes
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+        run: echo "Un nouveau reptile est proposé !"
+
+      - name: Gestion des reptiles pour les PR modifiées
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}
+        run: echo "Les informations d'un reptile ont été modifiées"
+
+      - name: Gestion des reptiles pour les PR synchronisées
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'synchronize' }}
+        run: echo "Un reptile a été mis à jour avec de nouvelles informations"
