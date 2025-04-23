@@ -1,7 +1,4 @@
-Nom: Lézard
-Classe: Reptilia
-Ordre: Squamata
-Famille: Lacertidae
+
 
 Description:
 Les lézards sont des reptiles écailleux au corps allongé, généralement avec quatre pattes et une longue queue. Ils sont caractérisés par leur capacité à se déplacer rapidement et, pour certaines espèces, à changer de couleur ou à perdre leur queue en cas de danger (autotomie).
