@@ -1,0 +1,34 @@
+Le Tigre
+---------
+
+Classification:
+- Règne: Animal
+- Embranchement: Chordata
+- Classe: Mammifères
+- Ordre: Carnivores
+- Famille: Félidés
+- Genre: Panthera
+- Espèce: Panthera tigris
+
+Description:
+Le tigre est l'un des plus grands félins vivants. Reconnaissable à son pelage roux rayé de noir, chaque tigre possède un motif de rayures unique, comme une empreinte digitale.
+
+Caractéristiques:
+- Poids: 100-300 kg
+- Longueur: 2,5-3,9 m (avec la queue)
+- Longévité: 20-26 ans en captivité, 10-15 ans à l'état sauvage
+- Vitesse: Jusqu'à 65 km/h en sprint court
+
+Habitat:
+Le tigre vit principalement dans les forêts tropicales, les forêts de conifères et les marécages d'Asie.
+
+Alimentation:
+Carnivore, il se nourrit principalement de grands ongulés comme les cerfs, les sangliers, et parfois de plus petits mammifères.
+
+Reproduction:
+- Gestation: 3-3,5 mois
+- Portée: 2-4 petits
+- Maturité sexuelle: 3-4 ans
+
+Statut de conservation:
+Le tigre est classé comme "En danger" par l'UICN. La population sauvage est estimée à moins de 4 000 individus.
