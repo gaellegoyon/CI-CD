@@ -1,4 +1,4 @@
-name: Exploration Spatiale Répétitif
+name: Exploration Spatiale Optimisée
 
 on:
   push:
@@ -6,38 +6,32 @@ on:
       - main
 
 jobs:
-  mission-mars:
+  exploration:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mission:
+          - nom: Mars
+            equipements: "Rover, Combinaison spatiale"
+            duree: "7 mois"
+            activite: "Analyse des roches"
+            type: "planete"
+          - nom: Lune
+            equipements: "Module lunaire, Combinaison spatiale"
+            duree: "3 jours"
+            activite: "Collecte d'échantillons"
+            type: "satellite"
+          - nom: Vénus
+            equipements: "Sonde atmosphérique, Instruments scientifiques"
+            duree: "5 mois"
+            activite: "Analyse atmosphérique"
+            type: "planete"
     steps:
-      - name: Mission Mars
+      - name: Mission ${{ matrix.mission.nom }}
         run: |
-          echo "=== Mission Mars ==="
-          echo "Équipements : Rover, Combinaison spatiale"
-          echo "Durée du voyage : 7 mois"
-          echo "Activité principale : Analyse des roches"
-          echo "Type de destination : planete"
-          echo "=== Fin de la mission ==="
-
-  mission-lune:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Mission Lune
-        run: |
-          echo "=== Mission Lune ==="
-          echo "Équipements : Module lunaire, Combinaison spatiale"
-          echo "Durée du voyage : 3 jours"
-          echo "Activité principale : Collecte d'échantillons"
-          echo "Type de destination : satellite"
-          echo "=== Fin de la mission ==="
-
-  mission-venus:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Mission Vénus
-        run: |
-          echo "=== Mission Vénus ==="
-          echo "Équipements : Sonde atmosphérique, Instruments scientifiques"
-          echo "Durée du voyage : 5 mois"
-          echo "Activité principale : Analyse atmosphérique"
-          echo "Type de destination : planete"
+          echo "=== Mission ${{ matrix.mission.nom }} ==="
+          echo "Équipements : ${{ matrix.mission.equipements }}"
+          echo "Durée du voyage : ${{ matrix.mission.duree }}"
+          echo "Activité principale : ${{ matrix.mission.activite }}"
+          echo "Type de destination : ${{ matrix.mission.type }}"
           echo "=== Fin de la mission ==="
