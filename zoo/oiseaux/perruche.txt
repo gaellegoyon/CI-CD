@@ -1,0 +1,25 @@
+# Perruche
+
+## Description générale
+La perruche est un petit oiseau appartenant à la famille des Psittacidés. Elle se caractérise par son plumage coloré et sa capacité à imiter des sons, dont la parole humaine pour certaines espèces.
+
+## Caractéristiques
+- **Taille**: 12 à 45 cm selon les espèces
+- **Poids**: 30 à 100 grammes
+- **Longévité**: 7 à 15 ans en captivité
+- **Habitat naturel**: Principalement en Australie, Asie et Afrique
+
+## Comportement
+Les perruches sont des oiseaux sociables qui vivent en groupes dans la nature. Elles sont connues pour leur intelligence et leur capacité d'apprentissage. En captivité, elles peuvent développer de forts liens avec leurs propriétaires.
+
+## Alimentation
+- Graines variées
+- Fruits frais
+- Légumes
+- Verdure
+
+## Espèces populaires
+- Perruche ondulée
+- Perruche calopsitte
+- Perruche à collier
+- Perruche de Bourke
