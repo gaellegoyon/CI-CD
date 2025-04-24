@@ -1,4 +1,4 @@
-name: Pizzeria Workflow
+name: "PizzaCI - Express"
 
 on:
   workflow_dispatch:
@@ -18,61 +18,58 @@ jobs:
   reception-commande:
     runs-on: ubuntu-latest
     outputs:
-      pizzas: ${{ steps.set-pizzas.outputs.pizzas }}
+      commande_pizzas: ${{ steps.enregistrer-commande.outputs.pizzas_commandees }}
     steps:
-      - name: Afficher le message d'accueil
-        run: echo "Bienvenue, ${{ github.event.inputs.nom_client }} !"
+      - name: Message d'accueil
+        run: echo "Bienvenue chez PizzaCI - Express, ${{ github.event.inputs.nom_client }}!"
 
-      - name: Confirmer la commande
+      - name: Confirmation de la commande
         run: |
-          echo "Votre commande a été confirmée. Voici les détails :"
-          echo "Nom du client : ${{ github.event.inputs.nom_client }}"
-          echo "Liste des pizzas : ${{ github.event.inputs.pizzas }}"
+        echo "Nous avons bien reçu votre commande de pizzas: ${{ github.event.inputs.pizzas }}"
 
-      - name: Configurer les pizzas pour le job suivant
-        id: set-pizzas
-        run: echo "pizzas=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
+      - name: Enregistrer la commande
+        id: enregistrer-commande
+        run: echo "pizzas_commandees=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
 
   cuisine:
     needs: reception-commande
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pizza: ${{ fromJSON(needs.reception-commande.outputs.pizzas) }}
-        taille: [L, XL]
+        pizza: ${{ fromJSON(needs.reception-commande.outputs.commande_pizzas) }}
+        taille: ["L", "XL"]
         include:
-          - pizza: dessert
-            taille: L
+          - pizza: "dessert_gratuit"
+            taille: "L"
     steps:
       - name: Préparer la pizza
-        run: echo "Préparation de la pizza ${{ matrix.pizza }} de taille ${{ matrix.taille }}"
+        run: echo "Préparation en cours de la pizza ${{ matrix.pizza }} en taille ${{ matrix.taille }}"
 
   livraison:
-    needs: [cuisine, reception-commande]
+    needs: cuisine
     runs-on: ubuntu-latest
     concurrency:
-      group: livraison
+      group: livraison-${{ github.workflow }}
       cancel-in-progress: true
     steps:
-      - name: Préparer la livraison
+      - name: Préparation de la livraison
         run: echo "Préparation de la livraison pour ${{ github.event.inputs.nom_client }}"
 
-      - name: Afficher les pizzas à livrer
+      - name: Liste des pizzas à livrer
         run: |
-          echo "Les pizzas à livrer sont: ${{ needs.reception-commande.outputs.pizzas }}"
+          echo "Les pizzas à livrer sont : ${{ needs.reception-commande.outputs.commande_pizzas }}"
 
   reclamation:
-    needs: [livraison, reception-commande]
+    needs: livraison
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
-      - name: Cloner le dépôt
+      - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Créer une issue pour réclamation
+      - name: Création d'une issue en cas de réclamation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue create --title "Réclamation pour ${{ github.event.inputs.nom_client }}" \
-                         --body "Une réclamation a été signalée pour la commande : ${{ needs.reception-commande.outputs.pizzas }}"
+          gh issue create --title "Suivi de commande pour ${{ github.event.inputs.nom_client }}" --body "Commande de pizzas: ${{ needs.reception-commande.outputs.commande_pizzas }}\n\nMerci de nous faire savoir si tout s'est bien passé avec votre commande!"
