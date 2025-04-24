@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pizza: ${{ fromJSON(fromJSON(needs.reception-commande.outputs.pizzas)) }}
+        pizza: ${{ fromJSON(needs.reception-commande.outputs.pizzas) }}
         taille: [L, XL]
         include:
           - pizza: dessert
