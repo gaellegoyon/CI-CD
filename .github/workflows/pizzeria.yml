@@ -27,18 +27,18 @@ jobs:
         run: |
           echo "Votre commande a été confirmée. Voici les détails :"
           echo "Nom du client : ${{ github.event.inputs.nom_client }}"
-          echo 'Liste des pizzas : ${{ github.event.inputs.pizzas }}'
+          echo "Liste des pizzas : ${{ github.event.inputs.pizzas }}"
 
       - name: Configurer les pizzas pour le job suivant
         id: set-pizzas
-        run: echo "pizzas=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
+        run: echo "pizzas=${{ toJSON(github.event.inputs.pizzas) }}" >> $GITHUB_OUTPUT
 
   cuisine:
     needs: reception-commande
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pizza: ${{ fromJSON(needs.reception-commande.outputs.pizzas) }}
+        pizza: ${{ fromJSON(fromJSON(needs.reception-commande.outputs.pizzas)) }}
         taille: [L, XL]
         include:
           - pizza: dessert
@@ -59,7 +59,7 @@ jobs:
 
       - name: Afficher les pizzas à livrer
         run: |
-          echo 'Les pizzas à livrer sont: ${{ needs.reception-commande.outputs.pizzas }}'
+          echo "Les pizzas à livrer sont: ${{ needs.reception-commande.outputs.pizzas }}"
 
   reclamation:
     needs: [livraison, reception-commande]
