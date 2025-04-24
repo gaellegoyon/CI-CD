@@ -24,7 +24,9 @@ jobs:
         run: echo "Bienvenue, ${{ github.event.inputs.nom_client }} !"
       - name: Confirmer la commande
         run: |
-          echo "Commande reçue: \"${{ github.event.inputs.pizzas }}\""
+          echo "Votre commande a été confirmée. Voici les détails :"
+          echo "Nom du client : ${{ github.event.inputs.nom_client }}"
+          echo "Liste des pizzas : ${{ github.event.inputs.pizzas }}"
       - name: Configurer les pizzas pour le job suivant
         id: set-pizzas
         run: echo "pizzas=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
