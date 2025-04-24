@@ -29,7 +29,7 @@ jobs:
 
       - name: Enregistrer la commande
         id: enregistrer-commande
-        run: echo "pizzas_commandees=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
+        run: echo "pizzas_commandees=${{ toJSON(github.event.inputs.pizzas) }}" >> $GITHUB_OUTPUT
 
   cuisine:
     needs: reception-commande
