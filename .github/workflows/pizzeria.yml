@@ -31,7 +31,7 @@ jobs:
 
       - name: Configurer les pizzas pour le job suivant
         id: set-pizzas
-        run: echo "pizzas=${{ toJSON(github.event.inputs.pizzas) }}" >> $GITHUB_OUTPUT
+        run: echo "pizzas=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
 
   cuisine:
     needs: reception-commande
