@@ -25,7 +25,7 @@ jobs:
 
       - name: Confirmation de la commande
         run: |
-        echo "Nous avons bien reçu votre commande de pizzas: ${{ github.event.inputs.pizzas }}"
+          echo "Nous avons bien reçu votre commande de pizzas: ${{ github.event.inputs.pizzas }}"
 
       - name: Enregistrer la commande
         id: enregistrer-commande
