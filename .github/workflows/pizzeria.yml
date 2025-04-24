@@ -22,11 +22,13 @@ jobs:
     steps:
       - name: Afficher le message d'accueil
         run: echo "Bienvenue, ${{ github.event.inputs.nom_client }} !"
+
       - name: Confirmer la commande
         run: |
           echo "Votre commande a été confirmée. Voici les détails :"
           echo "Nom du client : ${{ github.event.inputs.nom_client }}"
-          echo "Liste des pizzas : ${{ github.event.inputs.pizzas }}"
+          echo 'Liste des pizzas : ${{ github.event.inputs.pizzas }}'
+
       - name: Configurer les pizzas pour le job suivant
         id: set-pizzas
         run: echo "pizzas=${{ github.event.inputs.pizzas }}" >> $GITHUB_OUTPUT
@@ -54,9 +56,10 @@ jobs:
     steps:
       - name: Préparer la livraison
         run: echo "Préparation de la livraison pour ${{ github.event.inputs.nom_client }}"
+
       - name: Afficher les pizzas à livrer
         run: |
-          echo "Les pizzas à livrer sont: ${{ needs.reception-commande.outputs.pizzas }}"
+          echo 'Les pizzas à livrer sont: ${{ needs.reception-commande.outputs.pizzas }}'
 
   reclamation:
     needs: [livraison, reception-commande]
@@ -66,9 +69,10 @@ jobs:
     steps:
       - name: Cloner le dépôt
         uses: actions/checkout@v4
+
       - name: Créer une issue pour réclamation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh issue create --title "Réclamation pour ${{ github.event.inputs.nom_client }}" \
-                          --body "Une réclamation a été signalée pour la commande : ${{ needs.reception-commande.outputs.pizzas }}"
+                         --body "Une réclamation a été signalée pour la commande : ${{ needs.reception-commande.outputs.pizzas }}"
