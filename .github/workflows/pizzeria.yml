@@ -5,14 +5,14 @@ on:
     inputs:
       nom_client:
         description: "Nom du client"
-        required: true
+        default: "Jean Dupont"
       pizzas:
         description: |
           Liste des pizzas au format JSON. Attention aux points importants:
           - Utilisez des guillemets doubles
           - Entourez la liste avec []
           Exemple: ["margherita","reine","calzone"]
-        required: true
+        default: '["margherita","reine","calzone"]'
 
 jobs:
   reception-commande:
